@@ -26,7 +26,13 @@ public class ApplicationPluginLoader {
 	
 	public static void loadPlugins(MainWindow window) {
 		File pluginPath = new File("plugins" + File.separator + "active");
-		System.out.println("Plugin folder contains " + pluginPath.listFiles().length + " files.");
+		File[] allFiles = pluginPath.listFiles();
+		if (allFiles == null) {
+			System.out.println("Plugin directory " + pluginPath.getAbsolutePath() + " does not exist or cannot be read. No plugins will be loaded.");
+			serviceLoader = ServiceLoader.load(ApplicationPlugin.class);
+			return;
+		}
+		System.out.println("Plugin folder contains " + allFiles.length + " files.");
 		File[] plugins = pluginPath.listFiles((File dir, String name) -> name.endsWith(".jar"));
 		
 		List<URL> urls = Lists.newArrayList();

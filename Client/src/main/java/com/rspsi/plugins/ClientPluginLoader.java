@@ -30,7 +30,13 @@ public class ClientPluginLoader {
 	
 	public static void loadPlugins() {
 		File pluginPath = new File("plugins" + File.separator + "active");
-		log.info("Plugin folder contains {} files.", pluginPath.listFiles().length);
+		File[] allFiles = pluginPath.listFiles();
+		if (allFiles == null) {
+			log.warn("Plugin directory {} does not exist or cannot be read. No plugins will be loaded.", pluginPath.getAbsolutePath());
+			serviceLoader = ServiceLoader.load(ClientPlugin.class);
+			return;
+		}
+		log.info("Plugin folder contains {} files.", allFiles.length);
 		File[] plugins = pluginPath.listFiles((File dir, String name) -> name.endsWith(".jar"));
 		
 		List<URL> urls = Lists.newArrayList();
