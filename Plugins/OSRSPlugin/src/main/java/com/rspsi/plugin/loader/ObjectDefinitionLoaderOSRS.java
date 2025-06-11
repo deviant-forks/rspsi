@@ -297,7 +297,7 @@ public class ObjectDefinitionLoaderOSRS extends ObjectDefinitionLoader {
 				.filter(objectDefinition -> objectDefinition.getAreaId() != -1)
 				.forEach(objectDefinition -> {
 					RSArea area = areaLoader.forId(objectDefinition.getAreaId());
-					if (objectDefinition.getName() == null || objectDefinition.getName().equals("null") || objectDefinition.getName().isEmpty())
+					if (area != null && (objectDefinition.getName() == null || objectDefinition.getName().equals("null") || objectDefinition.getName().isEmpty()))
 						objectDefinition.setName("minimap-function[" + area.getSpriteId() + "]");
 				});
 	}
