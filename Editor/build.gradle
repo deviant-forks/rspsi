@@ -45,7 +45,7 @@ dependencies  {
 	implementation('org.controlsfx:controlsfx:11.2.1') {
 		exclude group: 'org.openjfx'
 	}
-	implementation 'com.jfoenix:jfoenix:8.0.9'
+	implementation 'com.jfoenix:jfoenix:9.0.10'
 	
 	// Add missing dependencies that Editor uses
 	implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
