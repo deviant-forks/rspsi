@@ -32,7 +32,7 @@ subprojects {
     }
 
     dependencies {
-        compile project(':Editor')
+        implementation project(':Editor')
     }
 
 
