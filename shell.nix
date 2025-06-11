@@ -2,11 +2,11 @@
 
 pkgs.mkShell {
   buildInputs = with pkgs; [
-    # Java 8 (required by the project)
-    openjdk8
+    # Java 21 LTS (compatible with JavaFX 19+)
+    openjdk21
     
-    # Gradle (version 7.x - compatible with Java 8, replacing removed gradle_6)
-    gradle_7
+    # Gradle (version 8.x - compatible with Java 21)
+    gradle_8
     
     # Git for version control
     git
@@ -23,6 +23,8 @@ pkgs.mkShell {
     echo "Java version: $(java -version 2>&1 | head -n 1)"
     echo "Gradle version: $(gradle --version | grep Gradle | head -n 1)"
     echo ""
+    echo "Updated to Java 21 LTS with JavaFX 21 support"
+    echo ""
     echo "Available commands:"
     echo "  gradle build          - Build the project"
     echo "  gradle clean          - Clean build artifacts"
@@ -37,7 +39,7 @@ pkgs.mkShell {
     echo ""
     
     # Set JAVA_HOME for consistency
-    export JAVA_HOME="${pkgs.openjdk8}/lib/openjdk"
+    export JAVA_HOME="${pkgs.openjdk21}/lib/openjdk"
     
     # Ensure gradle uses the correct Java version
     export GRADLE_OPTS="-Dorg.gradle.java.home=$JAVA_HOME"

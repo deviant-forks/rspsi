@@ -3,7 +3,7 @@ group = 'Editor UI'
 apply plugin: 'org.openjfx.javafxplugin'
 
 javafx {
-    version = "19"
+    version = "21"
     modules = [ 'javafx.fxml', 'javafx.controls', 'javafx.media', 'javafx.swing']
 }
 
@@ -26,7 +26,15 @@ apply plugin: 'application'
 
 run {
 	standardInput = System.in
-
+	jvmArgs = [
+		'--add-opens', 'javafx.graphics/com.sun.javafx.css=ALL-UNNAMED',
+		'--add-opens', 'javafx.controls/com.sun.javafx.scene.control.behavior=ALL-UNNAMED',
+		'--add-opens', 'javafx.controls/com.sun.javafx.scene.control=ALL-UNNAMED',
+		'--add-opens', 'javafx.base/com.sun.javafx.binding=ALL-UNNAMED',
+		'--add-opens', 'javafx.base/com.sun.javafx.event=ALL-UNNAMED',
+		'--add-opens', 'javafx.graphics/com.sun.javafx.scene=ALL-UNNAMED',
+		'--add-opens', 'javafx.graphics/com.sun.javafx.scene.traversal=ALL-UNNAMED'
+	]
 }
 // In this section you declare the dependencies for your production and test code
 dependencies  {
@@ -34,7 +42,9 @@ dependencies  {
  	implementation project(':Client')
 	implementation project(':RS-Cache-Library')
 	// https://mvnrepository.com/artifact/org.controlsfx/controlsfx
-	implementation group: 'org.controlsfx', name: 'controlsfx', version: '8.40.15'
+	implementation('org.controlsfx:controlsfx:11.2.1') {
+		exclude group: 'org.openjfx'
+	}
 	implementation 'com.jfoenix:jfoenix:8.0.9'
 	
 	// Add missing dependencies that Editor uses
@@ -48,10 +58,10 @@ dependencies  {
 
 }
 
-mainClassName = 'com.rspsi.LauncherWindow'
+
 
 jar {
-	archiveName = "Editor.jar"
+	archiveFileName = "Editor.jar"
 	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 	manifest {
 		attributes(
@@ -84,7 +94,7 @@ task myProguardTask(type: proguard.gradle.ProGuardTask) {
 }
 
 application {
-    mainClassName = "com.rspsi.LauncherWindow"
+    mainClass = "com.rspsi.LauncherWindow"
     applicationName = 'RSPSi'
 }
 //defaultTask 'jar'
