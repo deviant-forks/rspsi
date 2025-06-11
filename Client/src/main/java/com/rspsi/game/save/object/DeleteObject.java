@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.jagex.util.ObjectKey;
-import org.apache.commons.compress.utils.Lists;
+import com.google.common.collect.Lists;
 import org.apache.commons.math3.geometry.euclidean.threed.Vector3D;
 
 import com.jagex.Client;

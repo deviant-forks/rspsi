@@ -12,7 +12,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.compress.utils.Lists;
+import com.google.common.collect.Lists;
 
 import com.google.common.io.Files;
 import com.rspsi.controllers.LauncherController;

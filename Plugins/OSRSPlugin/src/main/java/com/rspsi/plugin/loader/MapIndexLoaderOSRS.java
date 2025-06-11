@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import org.apache.commons.compress.utils.Lists;
+import com.google.common.collect.Lists;
 
 import com.jagex.cache.loader.map.MapIndexLoader;
 import com.jagex.cache.loader.map.MapType;

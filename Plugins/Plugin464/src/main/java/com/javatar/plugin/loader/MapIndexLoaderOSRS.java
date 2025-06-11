@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.IntStream;
-import org.apache.commons.compress.utils.Lists;
+import com.google.common.collect.Lists;
 import org.displee.cache.index.Index;
 import org.displee.cache.index.archive.Archive;
 

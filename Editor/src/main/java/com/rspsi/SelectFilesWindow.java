@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.compress.utils.Lists;
+import com.google.common.collect.Lists;
 
 import com.google.common.collect.Maps;
 import com.jagex.chunk.Chunk;

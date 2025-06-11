@@ -4,7 +4,7 @@ import com.jagex.cache.config.VariableBits;
 import com.jagex.cache.loader.config.VariableBitLoader;
 import com.jagex.io.Buffer;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.compress.utils.Lists;
+import com.google.common.collect.Lists;
 import org.displee.cache.index.Index;
 import org.displee.cache.index.archive.Archive;
 import org.displee.cache.index.archive.file.File;

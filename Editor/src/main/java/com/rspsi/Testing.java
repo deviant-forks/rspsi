@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
-import org.apache.commons.compress.utils.Lists;
+import com.google.common.collect.Lists;
 
 import java.io.File;
 import java.io.FileWriter;

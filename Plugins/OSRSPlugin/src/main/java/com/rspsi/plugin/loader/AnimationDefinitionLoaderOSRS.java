@@ -5,7 +5,7 @@ import org.displee.cache.index.archive.file.File;
 
 import java.util.List;
 
-import org.apache.commons.compress.utils.Lists;
+import com.google.common.collect.Lists;
 
 import com.jagex.cache.anim.Animation;
 import com.jagex.cache.loader.anim.AnimationDefinitionLoader;

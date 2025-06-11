@@ -1,5 +1,12 @@
 description = 'Client'
 
+apply plugin: 'org.openjfx.javafxplugin'
+
+javafx {
+    version = "17.0.2"
+    modules = [ 'javafx.fxml', 'javafx.controls', 'javafx.media', 'javafx.swing']
+}
+
 dependencies {
 
 
@@ -16,4 +23,3 @@ dependencies {
 	implementation group: 'org.greenrobot', name: 'eventbus', version: '3.1.1'
 
 }
-
