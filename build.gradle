@@ -2,7 +2,7 @@
 
 plugins {
 	id 'java'
-	id 'io.franzbecker.gradle-lombok' version '3.3.0'
+	id 'io.franzbecker.gradle-lombok' version '5.0.0'
 	//id 'org.openjfx.javafxplugin' version '0.0.7'
 	id 'application'
 	//id 'org.beryx.runtime' version '1.2.0' apply false
@@ -51,13 +51,17 @@ subprojects {
     
     	
 	lombok { // optional: values below are the defaults
-        version = "1.18.12"
-        sha256 = "49381508ecb02b3c173368436ef71b24c0d4418ad260e6cc98becbcf4b345406"
+        version = "1.18.20"
+        sha256 = "39f3922deb679b1852af519eb227157ef2dd0a21eec3542c8ce1b45f2df39742"
 	}
 
     compileJava {
         options.fork = true
         options.incremental = true
+        options.forkOptions.jvmArgs += [
+            '--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED',
+            '--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED'
+        ]
     }
 	
 	/*javafx {
