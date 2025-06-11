@@ -21,7 +21,7 @@ allprojects {
     repositories {
         mavenCentral()
         mavenLocal()
-        maven { url "http://repo.maven.apache.org/maven2" }
+        maven { url "https://repo1.maven.org/maven2/" }
         maven { url "https://repo.adobe.com/nexus/content/repositories/public/"}
     }
 
