@@ -3,7 +3,7 @@ description = 'Client'
 apply plugin: 'org.openjfx.javafxplugin'
 
 javafx {
-    version = "17.0.2"
+    version = "19"
     modules = [ 'javafx.fxml', 'javafx.controls', 'javafx.media', 'javafx.swing']
 }
 
