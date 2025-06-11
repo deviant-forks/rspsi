@@ -33,7 +33,12 @@ run {
 		'--add-opens', 'javafx.base/com.sun.javafx.binding=ALL-UNNAMED',
 		'--add-opens', 'javafx.base/com.sun.javafx.event=ALL-UNNAMED',
 		'--add-opens', 'javafx.graphics/com.sun.javafx.scene=ALL-UNNAMED',
-		'--add-opens', 'javafx.graphics/com.sun.javafx.scene.traversal=ALL-UNNAMED'
+		'--add-opens', 'javafx.graphics/com.sun.javafx.scene.traversal=ALL-UNNAMED',
+		'-Xmx16G',
+		'-Xms4G',
+		'-XX:+UseG1GC',
+		'-XX:MaxGCPauseMillis=200',
+		'-XX:G1HeapRegionSize=16m'
 	]
 }
 // In this section you declare the dependencies for your production and test code
