@@ -85,6 +85,13 @@ public class MeshLoader {
 		} catch(Exception ex){
 			ex.printStackTrace();
 		}
+		
+		if (mesh == null) {
+			log.warn("Failed to create mesh for id: {}", id);
+			awaitingLoad.remove(Integer.valueOf(id));
+			return null;
+		}
+		
 		mesh.id = id;
 		mesh.revision = revision;
 
