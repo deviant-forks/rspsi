@@ -22,7 +22,12 @@ public class AnimationDefinitionLoaderOSRS extends AnimationDefinitionLoader {
 		animations = new Animation[archive.getHighestId() + 1];
 		for(File file : archive.getFiles()) {
 			if(file != null && file.getData() != null) {
-				animations[file.getId()] = decode(new Buffer(file.getData()));
+				try {
+					animations[file.getId()] = decode(new Buffer(file.getData()));
+				} catch (Exception e) {
+					System.err.println("Animation " + file.getId());
+					e.printStackTrace();
+				}
 			}
 		}
 		
@@ -38,8 +43,12 @@ public class AnimationDefinitionLoaderOSRS extends AnimationDefinitionLoader {
 		}
 
 		for (int id = 0; id < count; id++) {
-
-			animations[id] = decode(buffer);
+			try {
+				animations[id] = decode(buffer);
+			} catch (Exception e) {
+				System.err.println("Animation " + id);
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -120,6 +129,7 @@ public class AnimationDefinitionLoaderOSRS extends AnimationDefinitionLoader {
 			
 			} else {
 				System.out.println("Error unrecognised seq config code: " + opcode);
+				return animation;
 			}
 		} while (true);
 
