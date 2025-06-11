@@ -68,3 +68,14 @@ subprojects {
 
 }
 
+// Configure the root project to run the Editor application
+application {
+    mainClass = 'com.rspsi.LauncherWindow'
+}
+
+// Make sure the Editor module is built before running
+run {
+    dependsOn ':Editor:build'
+    classpath = project(':Editor').sourceSets.main.runtimeClasspath
+}
+
